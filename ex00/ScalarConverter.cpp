@@ -6,7 +6,7 @@
 /*   By: soraya <soraya@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 00:28:11 by soraya            #+#    #+#             */
-/*   Updated: 2026/02/10 00:43:40 by soraya           ###   ########.fr       */
+/*   Updated: 2026/02/11 23:35:24 by soraya           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@
 #include <cmath>
 #include <cctype>
 
-static bool isCharLiteral(const std::string& s)
+bool isCharLiteral(const std::string& s)
 {
 	return (s.length() == 1 && !std::isdigit(s[0]));
 }
 
-static bool isIntLiteral(const std::string& s)
+bool isIntLiteral(const std::string& s)
 {
 	char* end;
 	std::strtol(s.c_str(), &end, 10);
 	return (*end == '\0');
 }
 
-static bool isFloatLiteral(const std::string& s)
+bool isFloatLiteral(const std::string& s)
 {
 	if (s == "nanf" || s == "+inff" || s == "-inff")
 		return (true);
@@ -39,7 +39,7 @@ static bool isFloatLiteral(const std::string& s)
 	return (*end == 'f' && *(end + 1) == '\0');
 }
 
-static bool isDoubleLiteral(const std::string& s)
+bool isDoubleLiteral(const std::string& s)
 {
 	if (s == "nan" || s == "+inf" || s == "-inf")
 		return true;
