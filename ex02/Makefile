@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: soraya <soraya@student.42.fr>              +#+  +:+       +#+         #
+#    By: sofernan <sofernan@student.42madrid.es>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/03 15:59:12 by sofernan          #+#    #+#              #
-#    Updated: 2026/02/11 00:50:14 by soraya           ###   ########.fr        #
+#    Updated: 2026/02/12 16:57:35 by sofernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = base
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp
+SRCS = Base.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

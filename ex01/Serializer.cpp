@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soraya <soraya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sofernan <sofernan@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:01:06 by soraya            #+#    #+#             */
-/*   Updated: 2026/02/10 01:28:23 by soraya           ###   ########.fr       */
+/*   Updated: 2026/02/12 16:53:24 by sofernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,30 @@ Serializer::Serializer()
 	std::cout << "Serializer default constructor" << std::endl;
 }
 
-unsigned long Serializer::serialize(Data* ptr)
+Serializer::Serializer(const Serializer &other)
 {
-    return (reinterpret_cast<unsigned long>(ptr));
+	(void)other;
+	std::cout << "Serializer copy constructor" << std::endl;
 }
 
-Data* Serializer::deserialize(unsigned long raw)
+Serializer &Serializer::operator=(const Serializer &other)
+{
+	(void)other;
+	std::cout << "Serializer copy assignment operator" << std::endl;
+	return (*this);
+}
+
+Serializer::~Serializer()
+{
+	std::cout << "Serializer destructor" << std::endl;
+}
+
+uintptr_t Serializer::serialize(Data* ptr)
+{
+    return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+Data* Serializer::deserialize(uintptr_t raw)
 {
     return (reinterpret_cast<Data*>(raw));
 }

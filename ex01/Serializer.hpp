@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soraya <soraya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sofernan <sofernan@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:00:08 by soraya            #+#    #+#             */
-/*   Updated: 2026/02/10 01:27:21 by soraya           ###   ########.fr       */
+/*   Updated: 2026/02/12 16:49:04 by sofernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
+#include <stdint.h>
 #include "Data.hpp"
 
 class Serializer
@@ -25,8 +26,8 @@ class Serializer
 		~Serializer();
 
 	public:
-		static unsigned long serialize(Data* ptr);
-		static Data* deserialize(unsigned long raw);
+		static uintptr_t serialize(Data* ptr);
+		static Data* deserialize(uintptr_t raw);
 };
 
 #endif

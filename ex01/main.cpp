@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soraya <soraya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sofernan <sofernan@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 01:01:52 by soraya            #+#    #+#             */
-/*   Updated: 2026/02/10 01:35:32 by soraya           ###   ########.fr       */
+/*   Updated: 2026/02/12 16:46:07 by sofernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,27 @@
 
 int main()
 {
-	Data original(42, "Hello Serialization");
+	Data data;
+	data.number = 42;
+	data.s = "Hello Serialization";
 
-    std::cout << "Original Data address: " << &original << std::endl;
-    std::cout << "Original Data content: " << original.number << ", " << original.text << std::endl;
+    std::cout << "Original Data address: " << &data<< std::endl;
+    std::cout << "Original Data content: " << data.number << ", " << data.s << std::endl;
 
-    unsigned long ptrRaw = Serializer::serialize(&original);
+    uintptr_t ptrRaw = Serializer::serialize(&data);
     std::cout << "Serialized value: " << ptrRaw << std::endl;
 
     Data* restored = Serializer::deserialize(ptrRaw);
     std::cout << "Deserialized Data address: " << restored << std::endl;
-    std::cout << "Deserialized Data content: " << restored->number << ", " << restored->text << std::endl;
+    std::cout << "Deserialized Data content: " << restored->number << ", " << restored->s << std::endl;
 
-    if (restored == &original)
+    if (restored == &data)
 	{
-		std::cout << "Success: deserialized pointer matches original!" << std::endl;
+		std::cout << "Success: deserialized pointer matches original" << std::endl;
 	}
 	else
 	{
-		std::cout << "Error: deserialized pointer does not match original!" << std::endl;
+		std::cout << "Error: deserialized pointer does not match original" << std::endl;
 	}
 
 	return (0);

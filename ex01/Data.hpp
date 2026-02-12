@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soraya <soraya@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sofernan <sofernan@student.42madrid.es>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 00:58:16 by soraya            #+#    #+#             */
-/*   Updated: 2026/02/10 01:21:35 by soraya           ###   ########.fr       */
+/*   Updated: 2026/02/12 16:47:17 by sofernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 struct Data
 {
 	int number;
-	std::string text;
-
-	Data() : number(0), text("default") {}
-    Data(int n, const std::string& t) : number(n), text(t) {}
+	std::string s;
 };
 
 #endif
